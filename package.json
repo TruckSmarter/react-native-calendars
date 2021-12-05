@@ -1,6 +1,6 @@
 {
   "name": "@trucksmarter/react-native-calendars",
-  "version": "1.22.5",
+  "version": "1.22.6",
   "main": "src/index.ts",
   "types": "src/index.d.ts",
   "description": "React Native Calendar Components",
