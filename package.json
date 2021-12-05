@@ -1,6 +1,6 @@
 {
   "name": "@trucksmarter/react-native-calendars",
-  "version": "1.22.6",
+  "version": "1.22.7",
   "main": "src/index.ts",
   "types": "src/index.d.ts",
   "description": "React Native Calendar Components",
@@ -42,6 +42,7 @@
     "@babel/core": "^7.12.9",
     "@babel/eslint-parser": "^7.13.4",
     "@babel/runtime": "^7.12.5",
+    "@types/babel__core": "^7.1.16",
     "@types/lodash": "^4.14.170",
     "@types/react-native": "^0.63.52",
     "@types/xdate": "^0.8.32",
