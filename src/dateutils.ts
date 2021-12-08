@@ -57,14 +57,21 @@ export function month(date: XDate) {
 
   return fromTo(firstDay, lastDay);
 }
+/**
+ * Return a range of days from provided startDate that extends in the future for the 
+ * number of weeks provided by numberOfWeeksFromCurrent.
+ * 
+ * @param startDate Date to start add numberOfWeeksFromCurrent to
+ * @param numberOfWeeksFromCurrent Number of weeks which should be added to provided startDate
+ * @returns 
+ */
+function getDaysFromWeeksFromCurrent(startDate: XDate, numberOfWeeksFromCurrent: number) {
+  const startYear = startDate.getFullYear(),
+    startMonth = startDate.getMonth(),
+    startDateNumber = startDate.getDate();
+  const endDate = new XDate(startYear, startMonth, startDateNumber + 7*numberOfWeeksFromCurrent);
 
-export function weeks(firstDate: XDate, numberOfWeeks: number) {
-  const firstYear = firstDate.getFullYear(),
-    firstMonth = firstDate.getMonth(),
-    firstDateNumber = firstDate.getDate();
-  const lastDate = new XDate(firstYear, firstMonth, firstDateNumber + 7*(numberOfWeeks-1));
-
-  return fromTo(firstDate, lastDate);
+  return fromTo(startDate, endDate);
 }
 
 export function weekDayNames(firstDayOfWeek = 0) {
@@ -76,8 +83,8 @@ export function weekDayNames(firstDayOfWeek = 0) {
   return weekDaysNames;
 }
 
-export function page(date: XDate, firstDayOfWeek = 0, showSixWeeks = false, numberOfWeeks: number | undefined = undefined) {
-  const days =  numberOfWeeks ? weeks(date, numberOfWeeks): month(date);
+export function page(date: XDate, firstDayOfWeek = 0, showSixWeeks = false, numberOfWeeks?: number) {
+  const days =  numberOfWeeks ? getDaysFromWeeksFromCurrent(date, numberOfWeeks): month(date);
   let before = [],
     after = [];
 
